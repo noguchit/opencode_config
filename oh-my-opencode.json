@@ -1,6 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
+    "sisyphus": {
+      "model": "reallms/llama-4-scout"
+    },
     "oracle": {
       "model": "google/gemini-3-pro",
       "variant": "high"

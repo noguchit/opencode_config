@@ -1,9 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "theme": "tokyonight",
   "plugin": [
-    "oh-my-opencode@latest",
-    "opencode-antigravity-auth@1.5.1"
+    "oh-my-opencode@3.5.3",
+    "opencode-antigravity-auth@latest"
   ],
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "webfetch": "allow"
+  },
   "provider": {
     "google": {
       "name": "Google",
@@ -138,6 +144,103 @@
               }
             }
           }
+        },
+        "antigravity-claude-opus-4-6-thinking": {
+          "name": "Claude Opus 4.6 Thinking (Antigravity)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "low": {
+              "thinkingConfig": {
+                "thinkingBudget": 8192
+              }
+            },
+            "max": {
+              "thinkingConfig": {
+                "thinkingBudget": 32768
+              }
+            }
+          }
+        },
+        "gemini-2.5-flash": {
+          "name": "Gemini 2.5 Flash (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gemini-2.5-pro": {
+          "name": "Gemini 2.5 Pro (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gemini-3-flash-preview": {
+          "name": "Gemini 3 Flash Preview (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "gemini-3-pro-preview": {
+          "name": "Gemini 3 Pro Preview (Gemini CLI)",
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
+          }
         }
       }
     },
@@ -145,15 +248,27 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "RealLMS",
       "options": {
-        "baseURL": "{env:REALLMS_SERVER_URL}",
+        "baseURL": "https://reallms.rescloud.iu.edu/direct/v1/",
         "apiKey": "{env:REALLMS_API_KEY}"
       },
       "models": {
         "llama-4-scout": {
-          "name": "Llama 4 Scout"
+          "name": "Llama 4 Scout (Focused Reasoning/Debugging)"
+        },
+        "gpt-oss-120b": {
+          "name": "GPT-OSS 120B (Secondary for High-Level Design)"
         }
       }
     }
   },
-  "model": "reallms/llama-4-scout"
+  "agent": {
+    "sisyphus": {
+      "model": "reallms/llama-4-scout"
+    },
+    "title": {
+      "model": "reallms/llama-4-scout"
+    }
+  },
+  "model": "reallms/llama-4-scout",
+  "small_model": "reallms/llama-4-scout"
 }

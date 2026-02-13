@@ -23,29 +23,52 @@
 
 ### 2. plugin
 
-- `"oh-my-opencode@latest"`
+- `"oh-my-opencode@3.5.3"`
   - エージェント/カテゴリ拡張を提供するプラグイン。
-- `"opencode-antigravity-auth@1.5.1"`
+- `"opencode-antigravity-auth@latest"`
   - Antigravity 系モデルを使うための認証/連携プラグイン。
+  - 初回は `opencode auth login antigravity` の実行が必要。
 
 ### 3. provider
 
 `provider` には 2 系統の接続先があります。
 
 - `google`
-  - Gemini/Claude 系モデル（Antigravity 名義）を定義。
+  - Gemini/Claude 系モデル（Antigravity 名義 + Gemini CLI 名義）を定義。
   - 各モデルに `limit`（context/output 上限）、`modalities`（text/image/pdf 入力可否）、`variants`（thinking の強度や budget）を設定。
+  - 現在のモデル ID:
+    - `antigravity-gemini-3-pro`
+    - `antigravity-gemini-3-flash`
+    - `antigravity-claude-sonnet-4-5`
+    - `antigravity-claude-sonnet-4-5-thinking`
+    - `antigravity-claude-opus-4-5-thinking`
+    - `antigravity-claude-opus-4-6-thinking`
+    - `gemini-2.5-flash`
+    - `gemini-2.5-pro`
+    - `gemini-3-flash-preview`
+    - `gemini-3-pro-preview`
 - `reallms`
   - OpenAI 互換 API 接続 (`@ai-sdk/openai-compatible`)。
-  - `baseURL` と `apiKey` は環境変数参照:
-    - `{env:REALLMS_SERVER_URL}`
+  - `baseURL` は固定値:
+    - `https://reallms.rescloud.iu.edu/direct/v1/`
+  - `apiKey` は環境変数参照:
     - `{env:REALLMS_API_KEY}`
-  - 現在は `llama-4-scout` を 1 モデル定義。
+  - 現在のモデル:
+    - `llama-4-scout`
+    - `gpt-oss-120b`
 
 ### 4. 既定モデル
 
 - `"model": "reallms/llama-4-scout"`
 - OpenCode が通常利用するデフォルトモデルです。
+- `"small_model": "reallms/llama-4-scout"`
+- 軽量用途の既定モデルです。
+
+### 5. agent
+
+- `"agent.sisyphus.model": "reallms/llama-4-scout"`
+- `"agent.title.model": "reallms/llama-4-scout"`
+- 役割別エージェントのモデル既定値です。
 
 ## `oh-my-opencode.json` の説明
 
@@ -71,7 +94,6 @@
 
 `reallms` を使う場合、`.env` などで以下の値が必要です。
 
-- `REALLMS_SERVER_URL`
 - `REALLMS_API_KEY`
 
 未設定だと `reallms` プロバイダー経由のモデル呼び出しは失敗します。
