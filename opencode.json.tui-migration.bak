@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "theme": "tokyonight",
   "plugin": [
     "oh-my-opencode@3.5.3",
     "opencode-antigravity-auth@latest"
@@ -254,9 +255,6 @@
         "llama-4-scout": {
           "name": "Llama 4 Scout (Focused Reasoning/Debugging)"
         },
-        "Qwen3-Coder-Next": {
-          "name": "Qwen3 Coder Next"
-        },
         "gpt-oss-120b": {
           "name": "GPT-OSS 120B (Secondary for High-Level Design)"
         }
@@ -265,12 +263,12 @@
   },
   "agent": {
     "sisyphus": {
-      "model": "reallms/Qwen3-Coder-Next"
+      "model": "reallms/llama-4-scout"
     },
     "title": {
-      "model": "reallms/Qwen3-Coder-Next"
+      "model": "reallms/llama-4-scout"
     }
   },
-  "model": "reallms/Qwen3-Coder-Next",
-  "small_model": "reallms/Qwen3-Coder-Next"
+  "model": "reallms/llama-4-scout",
+  "small_model": "reallms/llama-4-scout"
 }
