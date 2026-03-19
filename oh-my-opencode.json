@@ -2,11 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "reallms/llama-4-scout"
+      "model": "reallms/Qwen3-Coder-Next"
     },
     "oracle": {
-      "model": "google/gemini-3-pro",
-      "variant": "high"
+      "model": "reallms/gpt-oss-120b"
     },
     "librarian": {
       "model": "opencode/glm-4.7-free"
@@ -15,46 +14,42 @@
       "model": "opencode/gpt-5-nano"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash"
+      "model": "reallms/Qwen3-Coder-Next"
     },
     "prometheus": {
-      "model": "google/gemini-3-pro"
+      "model": "reallms/gpt-oss-120b"
     },
     "metis": {
-      "model": "google/gemini-3-pro",
-      "variant": "high"
+      "model": "reallms/gpt-oss-120b"
     },
     "momus": {
-      "model": "google/gemini-3-pro",
-      "variant": "high"
+      "model": "reallms/gpt-oss-120b"
     },
     "atlas": {
-      "model": "google/gemini-3-pro"
+      "model": "reallms/gpt-oss-120b"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/gemini-3-pro"
+      "model": "reallms/gpt-oss-120b"
     },
     "ultrabrain": {
-      "model": "google/gemini-3-pro",
-      "variant": "high"
+      "model": "reallms/gpt-oss-120b"
     },
     "artistry": {
-      "model": "google/gemini-3-pro",
-      "variant": "high"
+      "model": "reallms/gpt-oss-120b"
     },
     "quick": {
-      "model": "google/gemini-3-flash"
+      "model": "reallms/Qwen3-Coder-Next"
     },
     "unspecified-low": {
-      "model": "google/gemini-3-flash"
+      "model": "reallms/Qwen3-Coder-Next"
     },
     "unspecified-high": {
-      "model": "google/gemini-3-flash"
+      "model": "reallms/gpt-oss-120b"
     },
     "writing": {
-      "model": "google/gemini-3-flash"
+      "model": "reallms/Qwen3-Coder-Next"
     }
   }
 }

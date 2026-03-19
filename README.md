@@ -25,28 +25,11 @@
 
 - `"oh-my-opencode@3.5.3"`
   - エージェント/カテゴリ拡張を提供するプラグイン。
-- `"opencode-antigravity-auth@latest"`
-  - Antigravity 系モデルを使うための認証/連携プラグイン。
-  - 初回は `opencode auth login antigravity` の実行が必要。
 
 ### 3. provider
 
-`provider` には 2 系統の接続先があります。
+`provider` には現在 1 系統の接続先があります。
 
-- `google`
-  - Gemini/Claude 系モデル（Antigravity 名義 + Gemini CLI 名義）を定義。
-  - 各モデルに `limit`（context/output 上限）、`modalities`（text/image/pdf 入力可否）、`variants`（thinking の強度や budget）を設定。
-  - 現在のモデル ID:
-    - `antigravity-gemini-3-pro`
-    - `antigravity-gemini-3-flash`
-    - `antigravity-claude-sonnet-4-5`
-    - `antigravity-claude-sonnet-4-5-thinking`
-    - `antigravity-claude-opus-4-5-thinking`
-    - `antigravity-claude-opus-4-6-thinking`
-    - `gemini-2.5-flash`
-    - `gemini-2.5-pro`
-    - `gemini-3-flash-preview`
-    - `gemini-3-pro-preview`
 - `reallms`
   - OpenAI 互換 API 接続 (`@ai-sdk/openai-compatible`)。
   - `baseURL` は固定値:
@@ -57,7 +40,11 @@
     - `{env:REALLMS_API_KEY}`
   - 現在のモデル:
     - `llama-4-scout`
+    - `DeepSeek-R1`
     - `Qwen3-Coder-Next`
+    - `Qwen3-Embedding-8B`
+    - `Qwen3-Reranker-8B`
+    - `embeddinggemma-300m`
     - `gpt-oss-120b`
   - 補足:
     - RealLMS のモデル ID は大文字小文字を含めて一致させる必要があります。
@@ -85,16 +72,17 @@
 
 ### 2. agents
 
-- `oracle`, `metis`, `momus` などのエージェント名ごとに、`model` と必要に応じて `variant` を設定。
+- `oracle`, `metis`, `momus` などのエージェント名ごとに `model` を設定。
+- 現在の `sisyphus` は `reallms/Qwen3-Coder-Next` を使います。
 - 例:
-  - `oracle` -> `google/gemini-3-pro` + `high`
+  - `oracle` -> `reallms/gpt-oss-120b`
   - `explore` -> `opencode/gpt-5-nano`
   - `librarian` -> `opencode/glm-4.7-free`
 
 ### 3. categories
 
 - `visual-engineering`, `ultrabrain`, `quick`, `writing` などのカテゴリ単位でモデルを割り当て。
-- 高負荷タスクは `gemini-3-pro`、軽量タスクは `gemini-3-flash` に分ける設計になっています。
+- 現在は高負荷タスクを `reallms/gpt-oss-120b`、軽量タスクを `reallms/Qwen3-Coder-Next` に寄せています。
 
 ## 環境変数の前提
 
@@ -109,6 +97,7 @@
 1. 既定モデルを変える:
    - `opencode.json` の `model` を `provider/model-name` 形式で更新。
    - 既定の RealLMS 利用先は現在 `reallms/Qwen3-Coder-Next`。
+   - `oh-my-opencode.json` で `agents.sisyphus.model` が上書きされていないかも確認する。
 2. 新しいモデルを追加する:
    - `opencode.json` の `provider.<provider>.models` にエントリを追加。
    - RealLMS 側の `/models` で返る `id` をそのまま使う。

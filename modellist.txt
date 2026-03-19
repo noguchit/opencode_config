@@ -19,25 +19,31 @@
       "owned_by": "openai"
     },
     {
-      "id": "code-llama",
+      "id": "Qwen3-Coder-Next",
+      "object": "model",
+      "created": 1677610602,
+      "owned_by": "openai"
+    },
+    {
+      "id": "Qwen3-Embedding-8B",
+      "object": "model",
+      "created": 1677610602,
+      "owned_by": "openai"
+    },
+    {
+      "id": "Qwen3-Reranker-8B",
+      "object": "model",
+      "created": 1677610602,
+      "owned_by": "openai"
+    },
+    {
+      "id": "embeddinggemma-300m",
       "object": "model",
       "created": 1677610602,
       "owned_by": "openai"
     },
     {
       "id": "whisper",
-      "object": "model",
-      "created": 1677610602,
-      "owned_by": "openai"
-    },
-    {
-      "id": "whisper-dev",
-      "object": "model",
-      "created": 1677610602,
-      "owned_by": "openai"
-    },
-    {
-      "id": "parakeet-dev",
       "object": "model",
       "created": 1677610602,
       "owned_by": "openai"
