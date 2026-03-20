@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "reallms/Qwen3-Coder-Next"
+      "model": "reallms/gpt-oss-120b"
     },
     "oracle": {
       "model": "reallms/gpt-oss-120b"
@@ -40,10 +40,10 @@
       "model": "reallms/gpt-oss-120b"
     },
     "quick": {
-      "model": "reallms/Qwen3-Coder-Next"
+      "model": "reallms/gpt-oss-120b"
     },
     "unspecified-low": {
-      "model": "reallms/Qwen3-Coder-Next"
+      "model": "reallms/gpt-oss-120b"
     },
     "unspecified-high": {
       "model": "reallms/gpt-oss-120b"

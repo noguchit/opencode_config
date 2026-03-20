@@ -11,7 +11,7 @@
   "provider": {
     "reallms": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "RealLMS",
+      "name": "REALLMs",
       "options": {
         "baseURL": "https://reallms.rescloud.iu.edu/direct/v1/",
         "apiKey": "{env:REALLMS_API_KEY}"

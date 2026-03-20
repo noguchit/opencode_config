@@ -47,7 +47,7 @@
     - `embeddinggemma-300m`
     - `gpt-oss-120b`
   - 補足:
-    - RealLMS のモデル ID は大文字小文字を含めて一致させる必要があります。
+    - REALLMs のモデル ID は大文字小文字を含めて一致させる必要があります。
     - そのため設定上は `qwen3-coder-next` ではなく `Qwen3-Coder-Next` を使います。
 
 ### 4. 既定モデル
@@ -96,10 +96,10 @@
 
 1. 既定モデルを変える:
    - `opencode.json` の `model` を `provider/model-name` 形式で更新。
-   - 既定の RealLMS 利用先は現在 `reallms/Qwen3-Coder-Next`。
+   - 既定の REALLMs 利用先は現在 `reallms/Qwen3-Coder-Next`。
    - `oh-my-opencode.json` で `agents.sisyphus.model` が上書きされていないかも確認する。
 2. 新しいモデルを追加する:
    - `opencode.json` の `provider.<provider>.models` にエントリを追加。
-   - RealLMS 側の `/models` で返る `id` をそのまま使う。
+   - REALLMs 側の `/models` で返る `id` をそのまま使う。
 3. エージェントごとに使い分ける:
    - `oh-my-opencode.json` の `agents` / `categories` を編集。
